@@ -117,7 +117,7 @@ void GPIO_Toggle (GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 
 // IRQ config and ISR handling
 void GPIO_IRQInterruptConfig (uint8_t IRQNumber, uint8_t EnOrDi);
-void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority);
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
 void GPIO_IRQHandler (uint8_t PinNumber);
 
 

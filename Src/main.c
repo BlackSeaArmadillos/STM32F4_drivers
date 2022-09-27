@@ -28,4 +28,5 @@ int main(void)
 void EXTI0_IRQHandler(void) {
     // Handle the interrupt
     GPIO_IRQHandler(0);
+    
 }

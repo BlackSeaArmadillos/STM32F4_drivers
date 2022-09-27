@@ -375,7 +375,7 @@ void GPIO_IRQInterruptConfig (uint8_t IRQNumber, uint8_t EnOrDi) {
  *
  * @Note			-
 */
-void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority) {
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority) {
 
 	// 1. Find IPR register
 	uint8_t iprx, iprx_section, shift_amount;
