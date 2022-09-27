@@ -10,6 +10,41 @@
 
 #include <stdint.h>
 
+/* ********************* START: Processor Specific Details *********************** */
+/*
+ *	ARM Cortex Mx Processor NVIC ISERx register Addresses
+ */
+#define NVIC_ISER0					( (volatile uint32_t *)0xE000E100 )
+#define NVIC_ISER1					( (volatile uint32_t *)0xE000E104 )
+#define NVIC_ISER2					( (volatile uint32_t *)0xE000E108 )
+#define NVIC_ISER3					( (volatile uint32_t *)0xE000E10C )
+
+/*
+ *	ARM Cortex Mx Processor NVIC ICERx register Addresses
+ */
+#define NVIC_ICER0					( (volatile uint32_t *)0XE000E180 )
+#define NVIC_ICER1					( (volatile uint32_t *)0XE000E184 )
+#define NVIC_ICER2					( (volatile uint32_t *)0XE000E188 )
+#define NVIC_ICER3					( (volatile uint32_t *)0XE000E18C )
+
+/*
+ * ARM Cortex Mx Processor NVIC IPRx register Addresses
+ */
+#define NVIC_PR_BASE_ADDR			( (volatile uint32_t *)0xE000E400 )
+
+/*
+ * ARM Cortex Mx Processor number of priority bits implemented in Priority register
+ */
+#define NO_PR_BITS_IMPLEMENTED		4
+
+
+/* ********************* START: MCU Specific Details *********************** */
+/*
+ *	ARM Cortex Mx Processor NVIC ISERx register Addresses
+ */
+/*
+ * Base addresses of Flash and SRAM memories
+ */
 #define FLASH_BASE_ADDR				0x08000000UL
 #define SRAM1_BASE_ADDR				0x20000000UL
 #define SRAM2_BASE_ADDR				( SRAM1_BASE_ADDR + 1C000UL )

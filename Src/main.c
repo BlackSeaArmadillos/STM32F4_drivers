@@ -24,3 +24,8 @@ int main(void)
     /* Loop forever */
 	for(;;);
 }
+
+void EXTI0_IRQHandler(void) {
+    // Handle the interrupt
+    GPIO_IRQHandler(0);
+}
