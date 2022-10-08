@@ -95,6 +95,7 @@
  */
 #define USART1_BASE_ADDR			( APB2_PERIPH_BASE_ADDR + 0x1000 )
 #define USART6_BASE_ADDR			( APB2_PERIPH_BASE_ADDR + 0x1400 )
+#define ADC_BASE_ADDR				( APB2_PERIPH_BASE_ADDR + 0x2000 )
 #define SPI1_BASE_ADDR				( APB2_PERIPH_BASE_ADDR + 0x3000 )
 #define SYSCFG_BASE_ADDR			( APB2_PERIPH_BASE_ADDR + 0x3800 )
 #define EXTI_BASE_ADDR				( APB2_PERIPH_BASE_ADDR + 0x3C00 )
@@ -180,6 +181,31 @@ typedef struct {
 } SYSCFG_RegDef_t;
 
 
+/*
+ * Peripheral register definitions structures SPI
+ */
+typedef struct {
+	volatile uint32_t CR1;
+	volatile uint32_t CR2;
+	volatile uint32_t SR;
+	volatile uint32_t DR;
+	volatile uint32_t CRCPR;
+	volatile uint32_t RXCRCR;
+	volatile uint32_t TXCRCR;
+	volatile uint32_t I2SCFGR;
+	volatile uint32_t I2SPR;
+} SPI_RegDef_t;
+
+
+/*
+ * Peripheral register definitions structures ADC
+ */
+typedef struct {
+
+} ADC_RegDef_t;
+
+
+
 
 /*
  * Peripheral definitions ( Peripheral base addresses typecasted to xxx_RegDef_t )
@@ -197,6 +223,9 @@ typedef struct {
 #define RCC							( (RCC_RegDef_t *) RCC_BASE_ADDR )
 #define EXTI						( (EXTI_RegDef_t *) EXTI_BASE_ADDR )
 #define SYSCFG						( (SYSCFG_RegDef_t *) SYSCFG_BASE_ADDR )
+#define SPI1						( ( SPI_RegDef_t *) SPI1_BASE_ADDR )
+#define SPI2						( ( SPI_RegDef_t *) SPI2_BASE_ADDR )
+#define SPI3						( ( SPI_RegDef_t *) SPI3_BASE_ADDR )
 
 
 /*
@@ -331,6 +360,9 @@ typedef struct {
 #define IRQ_NO_EXTI4				10
 #define IRQ_NO_EXTI9_5				23
 #define IRQ_NO_EXTI15_10			40
+#define IRQ_NO_SPI1					35
+#define IRQ_NO_SPI2					36
+#define IRQ_NO_SPI3					51
 
 
 /*
@@ -363,8 +395,62 @@ typedef struct {
 #define RESET						DISABLE
 #define GPIO_PIN_SET				SET
 #define GPIO_PIN_RESET				RESET
+#define FLAG_RESET					RESET
+#define FLAG_SET					SET
+
+
+
+
+/**************************************************
+ * Bit position definitions for SPI peripheral*****
+ **************************************************/
+/*
+ * Bit positions for CR1 (control register 1) register
+ */
+#define SPI_CR1_CPHA				0
+#define SPI_CR1_CPOL				1
+#define SPI_CR1_MSTR				2
+#define SPI_CR1_BR					3
+#define SPI_CR1_SPE					6
+#define SPI_CR1_LSB_FIRST			7
+#define SPI_CR1_SSI					8
+#define SPI_CR1_SSM					9
+#define SPI_CR1_RXONLY				10
+#define SPI_CR1_DFF					11
+#define SPI_CR1_CRC_NEXT			12
+#define SPI_CR1_CRC_EN				13
+#define SPI_CR1_BIDI_OE				14
+#define SPI_CR1_BIDI_MODE			15
+
+
+/*
+ * Bit positions for CR2 (control register 2) register
+ */
+#define SPI_CR2_RXDMAEN				0
+#define SPI_CR2_TXDMAEN				1
+#define SPI_CR2_SSOE				3
+#define SPI_CR2_FRF					4
+#define SPI_CR2_ERRIE				5
+#define SPI_CR2_RXNEIE				6
+#define SPI_CR2_TXEIE				7
+
+
+/*
+ * Bit positions for SR (status register) register
+ */
+#define SPI_SR_RXNE					0
+#define SPI_SR_TXE					1
+#define SPI_SR_CHSIDE				2
+#define SPI_SR_UDR					3
+#define SPI_SR_CRC_ERR				4
+#define SPI_SR_MODF					5
+#define SPI_SR_OVR					6
+#define SPI_SR_BSY					7
+#define SPI_SR_FRE					8
+
 
 
 #include "stm32f407xx_gpio.h"
+#include "stm32f407xx_spi.h"
 
 #endif /* INC_STM32F407XX_H_ */

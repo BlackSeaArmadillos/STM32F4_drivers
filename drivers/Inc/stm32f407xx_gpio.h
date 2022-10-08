@@ -13,7 +13,7 @@
 
 
 /*
- * Handle structure for GPIO pin
+ * Configuration structure for GPIO pin
  */
 typedef struct {
 	uint8_t GPIO_PinNumber;				// values from @GPIO_PIN_NUMBERS
@@ -25,6 +25,9 @@ typedef struct {
 } GPIO_PinConfig_t;
 
 
+/*
+ * Handle structure for GPIO pin
+ */
 typedef struct {
 	GPIO_RegDef_t *pGPIOx;				// pointer that holds the address of the GPIO peripheral
 	GPIO_PinConfig_t GPIO_PinConfig;	// holds GPIO pin config settings
@@ -99,7 +102,6 @@ typedef struct {
  * 		APIs supported by this driver
  *==========================================
  */
-
 
 // Peripheral clock setup
 void GPIO_PeriphClkCtrl (GPIO_RegDef_t *pGPIOx, uint8_t EnOrDi);
